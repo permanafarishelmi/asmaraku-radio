@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,900&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <h1 class="text-4xl font-bold italic bg-gradient-to-r from-cyan-400 to-violet-700 bg-clip-text text-transparent" style="font-family: 'Lato', sans-serif">Posting data from HTML to MongoDB Atlas</h1>
+    <form class="container" method="post" action="/">
+      <div class="px-4 py-3 rounded-full grid grid-cols-3 gap-4">
+        <input type="text" class="rounded text-pink-500 border-2 border-black" name="title" placeholder="nama" />
+      </div>
+      <div class="px-4 py-3 rounded-full grid grid-cols-3 gap-4">
+        <textarea class="rounded text-pink-500 border-2 border-black" name="content" placeholder="pesan"></textarea>
+      </div>
+      <button class="border-2 border-black bg-opacity-70 bg-cyan-400 mx-4 my-3 p-1">ADD TO MONGODB</button>
+    </form>
+  </body>
+</html>
+<!--  -->
+<form class="container" method="post" action="/">
+  <div class="px-4 py-3 rounded-full grid grid-cols-3 gap-4">
+    <input type="text" class="rounded text-pink-500 border-2 border-black" name="title" placeholder="nama" />
+  </div>
+  <div class="px-4 py-3 rounded-full grid grid-cols-3 gap-4">
+    <textarea class="rounded text-pink-500 border-2 border-black" name="content" placeholder="pesan"></textarea>
+  </div>
+  <button class="border-2 border-black bg-opacity-70 bg-cyan-400 mx-4 my-3 p-1">ADD TO MONGODB</button>
+</form>
+<!--  -->

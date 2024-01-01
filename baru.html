@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sebuah pesan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,900&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!--  -->
+    <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+      <h1 class="text-4xl font-bold italic bg-gradient-to-r from-cyan-400 to-violet-700 bg-clip-text text-transparent" style="font-family: 'Lato', sans-serif">Sebuah 'Pesan' Bukan Pesanan</h1>
+
+      <form method="post" action="/">
+        <div class="grid grid-cols-1 gap-6 mt-4">
+          <div>
+            <label class="text-blue-700 dark:text-gray-200" for="nama">Nama</label>
+            <input
+              name="title"
+              id="nama"
+              type="text"
+              class="block w-full px-4 py-2 mt-2 text-rose-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+              placeholder="ex : Faris Helmi.... (harus jujur yaa)"
+            />
+          </div>
+
+          <div>
+            <label class="text-blue-700 dark:text-gray-200" for="pesan">Pesan</label>
+            <input
+              name="content"
+              id="pesan"
+              type="text"
+              class="block w-full px-4 py-2 mt-2 text-rose-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+              placeholder="aku mau nyampein nih ke kamu, kalo ...."
+            />
+          </div>
+        </div>
+
+        <div class="flex justify-end mt-6">
+          <button
+            class="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-md hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 focus:outline-none focus:bg-black"
+          >
+            Save
+          </button>
+        </div>
+      </form>
+    </section>
+    <!--  -->
+  </body>
+</html>

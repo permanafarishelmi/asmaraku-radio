@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asmaraku</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <!-- lato -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,900&display=swap" rel="stylesheet" />
+    <!-- akhir lato -->
+</head>
+
+<body class="bg-green-200">
+
+    <img src="http://localhost:3002/radio1.jpeg" alt="Deskripsi Gambar" class="block mx-auto my-8 w-3/4">
+
+    <h1 class="text-2xl text-green-700 text-center font-bold">Selamat Datang di Web Asmaraku Radio</h1>
+    <h2 class="text-xl text-green-700 text-center font-bold">100% online</h2>
+
+    <iframe src="https://void.idserverhost.com/cp/widgets/player/single/?p=8054" height="110" width="100%" class="border-none" scrolling="no"></iframe>
+
+    <p class="text-green-700 text-center">Memancar dari Kabupaten Bandung Barat</p>
+    <p class="text-green-700 text-center">untuk info dm ke <a href="" class="text-blue-500">@asmarakuradio</a></p>
+
+    <img src="http://localhost:3002/radio2.jpeg" alt="Deskripsi Gambar" class="block mx-auto my-8 w-1/2">
+
+
+        <!--  -->
+        <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md">
+          <h1 class="text-4xl font-bold italic text-emerald-200" style="font-family: 'Lato', sans-serif">tulis komentar dibawah!</h1>
+        
+          <form method="post" action="/" onsubmit="return submitForm()">
+            <div class="grid grid-cols-1 gap-6 mt-4">
+              <div>
+                <label class="text-blue-700 dark:text-gray-200" for="nama">Nama / Asal dari mana</label>
+                <input
+                  name="title"
+                  id="nama"
+                  type="text"
+                  class="block w-full px-4 py-2 mt-2 text-rose-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                  placeholder="ex : bawang putih"
+                />
+              </div>
+        
+              <div>
+                <label class="text-blue-700 dark:text-gray-200" for="pesan">Komentar / Request Judul Lagu</label>
+                <input
+                  name="content"
+                  id="pesan"
+                  type="text"
+                  class="block w-full px-4 py-2 mt-2 text-rose-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+                  placeholder="req lagu coldplay"
+                />
+              </div>
+            </div>
+        
+            <div class="flex justify-end mt-6">
+              <button id="submitButton" type="submit" class="px-8 py-2.5 leading-5 text-white transition-colors duration-300 transform bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-md hover:from-indigo-600 hover:via-purple-600 hover:to-pink-600 focus:outline-none focus:bg-black">
+                <span id="submitText">kirim</span>
+                <span id="loadingSpinner" class="hidden ml-2 animate-spin">&#10240;</span>
+              </button>
+            </div>
+          </form>
+        </section>
+        
+        <script>
+          function submitForm() {
+          // Menonaktifkan tombol submit
+          document.getElementById("submitButton").disabled = true;
+
+          // Menampilkan spinner dan mengganti teks tombol submit
+          document.getElementById("loadingSpinner").classList.remove("hidden");
+          document.getElementById("submitText").innerText = "sudah terkirim";
+
+          // Menggunakan AJAX untuk mengirim form
+          var xhr = new XMLHttpRequest();
+          xhr.open("POST", "/", true);
+          xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+              // Form berhasil terkirim
+              document.getElementById("loadingSpinner").classList.add("hidden");
+              document.getElementById("submitText").innerText = "Sent!";
+              // Opsional: Tambahkan logika lain setelah pengiriman berhasil
+            }
+          };
+
+          // Mengambil data form
+          var formData = new FormData(document.getElementById("noteForm"));
+
+          // Mengirim form
+          xhr.send(new URLSearchParams(formData));
+
+          // Mencegah form bawaan untuk dikirim
+          return false;
+          }
+        </script>        
+        <!--  -->
+
+          <!-- ... (previous HTML code) ... -->
+
+        <div class="max-w-4xl mx-auto p-6 bg-white rounded-md shadow-md">
+          <h1 class="text-3xl font-bold mb-4">Daftar Komentar</h1>
+          <ul class="list-disc ml-6">
+            <% notes.forEach(function(note) { %>
+              <li class="mb-4">
+                <div class="flex items-center mb-2">
+                  <!-- <span class="text-gray-600 mr-2"><%= new Date(note.createdAt).toLocaleString() %></span> -->
+                  <strong class="text-blue-700"><%= note.title %></strong>:
+                </div>
+                <p class="text-gray-800"><%= note.content %></p>
+              </li>
+            <% }); %>
+          </ul>
+        </div>
+
+</body>
+
+</html>
